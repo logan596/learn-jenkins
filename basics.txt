@@ -5,5 +5,34 @@ You can createyour own plugins in jenkins.
 
 Continous Integration.??
 	-> Combine our code and running testing as frequently as possible.
-	-> 
+
+Jenkins is Build evaluating etc our code.Jenkins alert the developer after the Build completed wheter its failed or broken.
+
+Install jenkins through rpm or you can download .war file. 
+
+Jenkins needs JAVA.
+
+
+#java -jar jenkins.*.war
+
+Forwarding
+
+Once the before and after forwarding ports are allowed, you can now run the command to forward port 80 traffic to 8080, and port 443 traffic to 8443. The commands look like this:
+
+sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
+sudo iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 8443
+
+Once these rules are set and confirmed with iptables -L -n, and once your Jenkins instance is up and running on port 8080, attempt to access your Jenkins instance on port 80 instead of 8080. It should work and your URL should stay on port 80 - in other words, it should not get redirected to 8080. The fact that forwarding from 80 to 8080 (or 443 to 8443) should remain hidden from the client.
+
+Saving iptables Configuration
+
+Using the iptables command to change port configuration and routing rules only changes the current, in-memory configuration. It does not persist between restarts of the iptables service. So, you need to make sure you save the configuration to make the changes permanent.
+
+Saving the configuration is slightly different between RedHat-based and Debian-based systems. On a RedHat-based system (Fedora, CentOS, RHEL, etc), issue the following command:
+
+sudo iptables-save > /etc/sysconfig/iptables
+
+
+
+ 
 
