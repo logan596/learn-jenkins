@@ -1,0 +1,9 @@
+Jenkins is Opensource.
+Is a web base tool,Java tool.
+Jenknins is highly extensible, there are lots of plugins available in jenkins.
+You can createyour own plugins in jenkins.
+
+Continous Integration.??
+	-> Combine our code and running testing as frequently as possible.
+	-> 
+
